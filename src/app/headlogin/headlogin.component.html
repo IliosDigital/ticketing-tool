@@ -1,0 +1,217 @@
+<div class="task-image">
+  <img src="assets/images/task-placeholder.jpg" alt="Task Image" class="task-img" />
+</div>
+<div class="dashboard-container">
+  <h2>Welcome To Head Dashboard!</h2>
+
+  <div class="employee-dropdown-container">
+    <button class="employee-dropdown-btn">
+      Employees ({{ employeesWithTaskCount.length }})
+    </button>
+    <div class="employee-dropdown-content">
+      <ul>
+        <!-- Loop over employees and display their names with task count -->
+        <li *ngFor="let employee of employeesWithTaskCount">
+          {{ employee.name }} ({{ employee.count }} tasks)
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="category-btn2-container">
+    <button class="category-btn2">
+      POC ({{ getCategoryCount('POC') }})
+    </button>
+    <div class="status-dropdown-hover">
+      <ul>
+        <li (click)="filterByCategoryAndStatus('POC', 'Open')">Open ({{ getStatusCountForCategory('POC', 'Open') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'WIP')">WIP({{ getStatusCountForCategory('POC', 'WIP') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'Querry Raised')">Querry Raised ({{ getStatusCountForCategory('POC', 'Querry Raised') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'Peer Review')">Peer Review ({{ getStatusCountForCategory('POC', 'Peer Review') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'Head Review')">Head Review ({{ getStatusCountForCategory('POC', 'Head Review') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'Lead Review')">Lead Review ({{ getStatusCountForCategory('POC', 'Lead Review') }})</li>
+        <li (click)="filterByCategoryAndStatus('POC', 'Completed')">Completed ({{ getStatusCountForCategory('POC', 'Completed') }})</li>
+      </ul>
+    </div>
+</div>
+<div class="category-btn2-container">
+  <button class="category-btn2">
+    PRICING ({{ getCategoryCount('PRICING') }})
+  </button>
+  <div class="status-dropdown-hover">
+    <ul>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Open')">Open ({{ getStatusCountForCategory('PRICING', 'Open') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'WIP')">WIP({{ getStatusCountForCategory('PRICING', 'WIP') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Querry Raised')">Querry Raised ({{ getStatusCountForCategory('PRICING', 'Querry Raised') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Peer Review')">Peer Review ({{ getStatusCountForCategory('PRICING', 'Peer Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Head Review')">Head Review ({{ getStatusCountForCategory('PRICING', 'Head Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Lead Review')">Lead Review ({{ getStatusCountForCategory('PRICING', 'Lead Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('PRICING', 'Completed')">Completed ({{ getStatusCountForCategory('PRICING', 'Completed') }})</li>
+    </ul>
+  </div>
+</div>
+<div class="category-btn2-container">
+  <button class="category-btn2">
+    TENDER ({{ getCategoryCount('TENDER') }})
+  </button>
+  <div class="status-dropdown-hover">
+    <ul>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Open')">Open ({{ getStatusCountForCategory('TENDER', 'Open') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'WIP')">WIP({{ getStatusCountForCategory('TENDER', 'WIP') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Querry Raised')">Querry Raised ({{ getStatusCountForCategory('TENDER', 'Querry Raised') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Peer Review')">Peer Review ({{ getStatusCountForCategory('TENDER', 'Peer Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Head Review')">Head Review ({{ getStatusCountForCategory('TENDER', 'Head Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Lead Review')">Lead Review ({{ getStatusCountForCategory('TENDER', 'Lead Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('TENDER', 'Completed')">Completed ({{ getStatusCountForCategory('TENDER', 'Completed') }})</li>
+    </ul>
+  </div>
+</div>
+<div class="category-btn2-container">
+  <button class="category-btn2">
+    SOW ({{ getCategoryCount('SOW') }})
+  </button>
+  <div class="status-dropdown-hover">
+    <ul>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Open')">Open ({{ getStatusCountForCategory('SOW', 'Open') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'WIP')">WIP({{ getStatusCountForCategory('SOW', 'WIP') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Querry Raised')">Querry Raised ({{ getStatusCountForCategory('SOW', 'Querry Raised') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Peer Review')">Peer Review ({{ getStatusCountForCategory('SOW', 'Peer Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Head Review')">Head Review ({{ getStatusCountForCategory('SOW', 'Head Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Lead Review')">Lead Review ({{ getStatusCountForCategory('SOW', 'Lead Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('SOW', 'Completed')">Completed ({{ getStatusCountForCategory('SOW', 'Completed') }})</li>
+    </ul>
+  </div>
+</div>
+<div class="category-btn2-container">
+  <button class="category-btn2">
+    IMPLEMENTATION ({{ getCategoryCount('IMPLEMENTATION') }})
+  </button>
+  <div class="status-dropdown-hover">
+    <ul>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Open')">Open ({{ getStatusCountForCategory('IMPLEMENTATION', 'Open') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'WIP')">WIP({{ getStatusCountForCategory('IMPLEMENTATION', 'WIP') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Querry Raised')">Querry Raised ({{ getStatusCountForCategory('IMPLEMENTATION', 'Querry Raised') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Peer Review')">Peer Review ({{ getStatusCountForCategory('IMPLEMENTATION', 'Peer Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Head Review')">Head Review ({{ getStatusCountForCategory('IMPLEMENTATION', 'Head Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Lead Review')">Lead Review ({{ getStatusCountForCategory('IMPLEMENTATION', 'Lead Review') }})</li>
+      <li (click)="filterByCategoryAndStatus('IMPLEMENTATION', 'Completed')">Completed ({{ getStatusCountForCategory('IMPLEMENTATION', 'Completed') }})</li>
+    </ul>
+  </div>
+</div>
+<div class="category-btn2-container">
+  <button class="category-btn2">
+    ALL ({{ getTotalTaskCount() }})
+  </button>
+  <div class="status-dropdown-hover">
+    <ul>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Open')">
+        Open ({{ getStatusCountForCategory('ALL', 'Open') }}) 
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'WIP')">
+        WIP({{ getStatusCountForCategory('ALL', 'WIP') }})
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Querry Raised')">
+        Querry Raised ({{ getStatusCountForCategory('ALL', 'Querry Raised') }})
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Peer Review')">
+        Peer Review ({{ getStatusCountForCategory('ALL', 'Peer Review') }})
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Head Review')">
+        Head Review ({{ getStatusCountForCategory('ALL', 'Head Review') }})
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Lead Review')">
+        Lead Review ({{ getStatusCountForCategory('ALL', 'Lead Review') }})
+      </li>
+      <li (click)="filterByCategoryAndStatus('ALL', 'Completed')">
+        Completed ({{ getStatusCountForCategory('ALL', 'Completed') }})
+      </li>
+    </ul>
+  </div>
+</div>
+  <button (click)="createTask()" class="create-task-btn">Create Task</button>
+  <div *ngIf="isCreatingTask" class="task-form">
+    <h3 *ngIf="editingTaskId === null">Create New Task</h3>
+    <h3 *ngIf="editingTaskId !== null">Edit Task</h3>
+    <form (ngSubmit)="saveTask()">   
+      <label for="taskName">Task Name:</label>
+      <input
+        [(ngModel)]="newTask.taskName"
+        name="taskName"
+        id="taskName"
+        placeholder="Enter task name"
+        required
+      />      
+      <label for="description">Task Description:</label>
+      <input
+        [(ngModel)]="newTask.description"
+        name="description"
+        id="description"
+        placeholder="Enter task description"
+        required
+      />     
+      <label for="date">Task Due Date:</label>
+      <input [(ngModel)]="newTask.date" name="date" id="date" type="date" required />      
+      <label for="status">Status:</label>
+      <select [(ngModel)]="newTask.status" name="status" id="status" required>
+        <option value="Open">Open</option>
+        <option value="WIP">WIP</option>
+        <option value="Querry Raised">Querry Raised</option>
+        <option value="Peer Review">Peer Review</option>
+        <option value="Head Review">Head Review</option>
+        <option value="Lead Review">Lead Review</option>
+        <option value="Completed">Completed</option>
+      </select>      
+      <label for="category">Category:</label>
+      <select [(ngModel)]="newTask.tier" name="category" id="category" required>
+        <option value="POC">POC</option>
+        <option value="PRICING">PRICING</option>
+        <option value="TENDER">TENDER</option>
+        <option value="SOW">SOW</option>
+        <option value="IMPLEMENTATION">IMPLEMENTATION</option>
+      </select>      
+      <label for="assignedName">Assigned to:</label>
+      <select [(ngModel)]="newTask.assignedName" name="assignedName" id="assignedName" required>
+        <option *ngFor="let user of users" [value]="user">{{ user }}</option>
+      </select>      
+      <label for="remarks">Remarks (Employee Updates):</label>
+      <textarea
+        [(ngModel)]="newTask.remarks"
+        name="remarks"
+        id="remarks"
+        placeholder="Enter remarks for the task"
+        rows="4"
+      ></textarea>
+      <button type="submit" class="save-task-btn">Save Task</button>
+    </form>
+  </div>
+  <div *ngIf="tasks.length === 0" class="no-tasks">
+    <p>No tasks available. Create one!</p>
+  </div>
+  <div *ngFor="let task of filteredTasks; let i = index" class="task-card">
+    <div class="task-header">
+      <h3>{{ task.taskName }}</h3> 
+      <span class="task-date">{{ task.date }}</span>
+    </div>
+    <div class="task-details">
+      <p><strong>Assigned to:</strong> {{ task.assignedName }}</p>
+      <p><strong>Status:</strong> {{ task.status }}</p>
+      <p><strong>Category:</strong> {{ task.tier }}</p> 
+      <p><strong>Description:</strong> {{ task.description }}</p>
+      <p><strong>Remarks:</strong> {{ task.remarks }}</p>
+    </div>
+    <div class="task-actions">
+      <button (click)="editTask(task)" class="edit-btn">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="deleteTask(task.id!)" class="delete-btn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="logout-container">
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+<router-outlet></router-outlet>

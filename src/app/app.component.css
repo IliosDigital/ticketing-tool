@@ -1,0 +1,10 @@
+.img {
+    margin-bottom: auto;
+    background-size: cover;
+    background-position:right; 
+    background-attachment:fixed; 
+    margin: 0; 
+}   
+.task-image {
+    background-size: cover;
+}

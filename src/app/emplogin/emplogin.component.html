@@ -1,0 +1,87 @@
+<div class="task-image">
+  <img src="assets/images/task-placeholder.jpg" alt="Task Image" class="task-img" />
+</div>
+<div class="dashboard-container">
+  <h2>Welcome To Employee Dashboard!</h2>
+  <div class="dropdowns">
+    <button 
+      (click)="filterTasks('Peer Review')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'Peer Review'">
+      Peer Review
+    </button>
+    <button 
+      (click)="filterTasks('Querry Raised')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'Querry Raised'">
+      Querry Raised
+    </button>
+    <button 
+      (click)="filterTasks('WIP')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'WIP'">
+      WIP
+    </button>
+    <button 
+      (click)="filterTasks('open')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'open'">
+      Open
+    </button>
+    <button 
+      (click)="filterTasks('Head Review')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'Head Review'">
+      Head Review
+    </button>
+    <button 
+      (click)="filterTasks('Lead Review')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'Lead Review'">
+      Lead Review
+    </button>
+    <button 
+      (click)="filterTasks('Completed')" 
+      class="dropdown-btn" 
+      [class.active]="selectedCategory === 'Completed'">
+      Completed
+    </button>
+  </div>
+  <div *ngIf="isLoading" class="loader">Loading tasks...</div>
+  <div *ngIf="tasksVisible && filteredTasks.length > 0" class="task-cards">
+    <div *ngFor="let task of filteredTasks" class="task-card">
+      <div class="task-header">
+        <h3>{{ task.taskName }}</h3> 
+        <span class="task-date">{{ task.date }}</span>
+      </div>
+      <div class="task-details">
+        <p><strong>Assigned to:</strong> {{ task.assignedName }}</p>
+        <p><strong>Description:</strong> {{ task.description }}</p> 
+        <div class="remarks-details">
+          <strong>Remarks:</strong>
+          <textarea 
+            [(ngModel)]="task.remarks" 
+            placeholder="Enter your remarks here" 
+            (ngModelChange)="onRemarksChange(task)">
+          </textarea>
+        </div>
+        <label for="status">Status:</label> 
+        <select [(ngModel)]="task.status" (change)="onStatusChange(task)">
+          <option value="Open">Open</option>
+          <option value="WIP">WIP</option>
+          <option value="Querry Raised">Querry Raised</option>
+          <option value="Peer Review">Peer Review</option>
+          <option value="Head Review">Head Review</option>
+          <option value="Lead Review">Lead Review</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="tasksVisible && filteredTasks.length === 0" class="no-tasks">
+    No Tasks Found In This Category.
+  </p>
+</div>
+<div class="logout-container">
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>

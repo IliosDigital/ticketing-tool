@@ -1,0 +1,85 @@
+<div class="register-container">
+    <h2>WELCOME TO ILIOS DIGITAL TICKET APP</h2>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">    
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="name"
+          required
+          class="form-control"
+          placeholder="Enter your name"
+        />
+      </div>  
+      <div class="form-group">
+        <label for="role">Role</label>
+        <input
+          type="text"
+          id="role"
+          name="role"
+          [(ngModel)]="role"
+          required
+          class="form-control"
+          placeholder="Enter your role"
+        />
+      </div> 
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          class="form-control"
+          placeholder="Enter your email"
+        />
+      </div>    
+      <div class="form-group">
+        <label for="createPassword">Create Password</label>
+        <input
+          type="password"
+          id="createPassword"
+          name="createPassword"
+          [(ngModel)]="createPassword"
+          required
+          class="form-control"
+          placeholder="Create your password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          [(ngModel)]="confirmPassword"
+          required
+          class="form-control"
+          placeholder="Confirm your password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="level">Level</label>
+        <select
+          id="level"
+          name="level"
+          [(ngModel)]="level"
+          required
+          class="form-control"
+        >
+          <option value="" disabled>Select your level</option>
+          <option value="Associate Cloud Engineer">Associate Cloud Engineer</option>
+          <option value="Cloud Engineer">Cloud Engineer</option>
+          <option value="Team Lead">Team Lead</option>
+          <option value="Team Head">Team Head</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!registerForm.form.valid">
+        Register
+      </button>
+    </form>
+    </div>
+    <router-outlet></router-outlet>
